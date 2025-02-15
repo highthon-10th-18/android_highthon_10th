@@ -15,9 +15,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -32,13 +29,15 @@ import com.example.android_highthon_10th.util.noRippleClickable
 
 @Composable
 fun SegmentController(
-    textList: List<String>
+    modifier: Modifier = Modifier,
+    selectedIndex: Int,
+    textList: List<String>,
+    onClick: (Int) -> Unit
 ) {
-    var selectedIndex by remember { mutableIntStateOf(0) }
     val radius = RoundedCornerShape(8.dp)
 
     BoxWithConstraints(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .background(ColorStyles.BgBase.defaultPressed, RoundedCornerShape(12.dp))
             .padding(4.dp)
@@ -66,7 +65,7 @@ fun SegmentController(
                 Segment(
                     text = text,
                     isSelected = index == selectedIndex,
-                    onClick = { selectedIndex = index },
+                    onClick = { onClick(index) },
                     modifier = Modifier.width(segmentWidthDp)
                 )
             }
@@ -101,7 +100,11 @@ private fun Preview() {
     AppTheme {
         Column(modifier = Modifier.padding(10.dp)) {
             val list = List(3) { "선택${it + 1}" }
-            SegmentController(list)
+            SegmentController(
+                selectedIndex = 0,
+                textList = list,
+                onClick = { }
+            )
         }
     }
 }
