@@ -1,4 +1,4 @@
-package com.example.android_highthon_10th
+package com.example.android_highthon_10th.presentation
 
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
@@ -8,12 +8,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
-import com.example.android_highthon_10th.module.main.MainRoute
-import com.example.android_highthon_10th.module.main.chat.ChatRoute
-import com.example.android_highthon_10th.module.main.explore.ExploreRoute
-import com.example.android_highthon_10th.module.main.profile.ProfileRoute
-import com.example.android_highthon_10th.module.main.task.TaskRoute
-import com.example.android_highthon_10th.module.splash.SplashRoute
+import com.example.android_highthon_10th.presentation.main.MainRoute
+import com.example.android_highthon_10th.presentation.main.chat.ChatRoute
+import com.example.android_highthon_10th.presentation.main.explore.ExploreRoute
+import com.example.android_highthon_10th.presentation.main.profile.ProfileRoute
+import com.example.android_highthon_10th.presentation.main.task.TaskRoute
+import com.example.android_highthon_10th.presentation.splash.SplashRoute
 
 object AppRoute {
     const val MAIN_ROUTE = "main-route"

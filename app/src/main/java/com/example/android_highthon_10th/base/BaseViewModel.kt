@@ -5,7 +5,7 @@ import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.android_highthon_10th.constant.ErrorMessage
+import com.example.android_highthon_10th.util.ErrorMessage
 import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope

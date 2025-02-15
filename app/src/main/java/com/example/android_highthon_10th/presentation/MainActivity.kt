@@ -1,4 +1,4 @@
-package com.example.android_highthon_10th
+package com.example.android_highthon_10th.presentation
 
 import android.graphics.Color
 import android.os.Bundle

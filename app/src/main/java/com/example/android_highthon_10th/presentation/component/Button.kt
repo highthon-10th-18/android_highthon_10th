@@ -1,4 +1,4 @@
-package com.example.android_highthon_10th.component
+package com.example.android_highthon_10th.presentation.component
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box

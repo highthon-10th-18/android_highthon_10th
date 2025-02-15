@@ -1,4 +1,4 @@
-package com.example.android_highthon_10th.component
+package com.example.android_highthon_10th.presentation.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.example.android_highthon_10th.AppRoute
+import com.example.android_highthon_10th.presentation.AppRoute
 import com.example.android_highthon_10th.R
 import com.example.android_highthon_10th.style.ColorStyles
 import com.example.android_highthon_10th.style.TextStyles

@@ -1,4 +1,4 @@
-package com.example.android_highthon_10th.component
+package com.example.android_highthon_10th.presentation.component
 
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.RowScope

@@ -1,4 +1,4 @@
-package com.example.android_highthon_10th.module.splash
+package com.example.android_highthon_10th.presentation.splash
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background

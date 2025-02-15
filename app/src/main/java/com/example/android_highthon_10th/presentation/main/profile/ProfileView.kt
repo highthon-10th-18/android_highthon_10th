@@ -1,4 +1,4 @@
-package com.example.android_highthon_10th.module.main.explore
+package com.example.android_highthon_10th.presentation.main.profile
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -12,12 +12,12 @@ import com.example.android_highthon_10th.style.AppTheme
 import com.example.android_highthon_10th.style.ColorStyles
 
 @Composable
-fun ExploreRoute() {
-    ExploreScreen()
+fun ProfileRoute() {
+    ProfileScreen()
 }
 
 @Composable
-private fun ExploreScreen() {
+private fun ProfileScreen() {
     Scaffold { paddingValues ->
         Column(
             modifier = Modifier
@@ -34,6 +34,6 @@ private fun ExploreScreen() {
 @Composable
 private fun Preview() {
     AppTheme {
-        ExploreScreen()
+        ProfileScreen()
     }
 }

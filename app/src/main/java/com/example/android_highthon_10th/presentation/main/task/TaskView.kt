@@ -1,4 +1,4 @@
-package com.example.android_highthon_10th.module.main.chat
+package com.example.android_highthon_10th.presentation.main.task
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -12,12 +12,12 @@ import com.example.android_highthon_10th.style.AppTheme
 import com.example.android_highthon_10th.style.ColorStyles
 
 @Composable
-fun ChatRoute() {
-    ChatScreen()
+fun TaskRoute() {
+    TaskScreen()
 }
 
 @Composable
-private fun ChatScreen() {
+private fun TaskScreen() {
     Scaffold { paddingValues ->
         Column(
             modifier = Modifier
@@ -34,6 +34,6 @@ private fun ChatScreen() {
 @Composable
 private fun Preview() {
     AppTheme {
-        ChatScreen()
+        TaskScreen()
     }
 }

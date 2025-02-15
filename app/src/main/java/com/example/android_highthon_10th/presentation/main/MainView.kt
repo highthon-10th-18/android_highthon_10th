@@ -1,4 +1,4 @@
-package com.example.android_highthon_10th.module.main
+package com.example.android_highthon_10th.presentation.main
 
 import android.annotation.SuppressLint
 import androidx.compose.animation.EnterTransition
@@ -10,7 +10,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
-import com.example.android_highthon_10th.component.BottomNavigationBar
+import com.example.android_highthon_10th.presentation.component.BottomNavigationBar
 import com.example.android_highthon_10th.style.AppTheme
 import com.example.android_highthon_10th.style.ColorStyles
 
