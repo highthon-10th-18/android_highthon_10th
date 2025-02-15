@@ -8,12 +8,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
-import com.example.android_highthon_10th.module.MainRoute
-import com.example.android_highthon_10th.module.main.Item1Route
-import com.example.android_highthon_10th.module.main.Item2Route
-import com.example.android_highthon_10th.module.main.Item3Route
-import com.example.android_highthon_10th.module.main.Item4Route
-import com.example.android_highthon_10th.module.main.Item5Route
+import com.example.android_highthon_10th.module.main.MainRoute
+import com.example.android_highthon_10th.module.main.chat.ChatRoute
+import com.example.android_highthon_10th.module.main.explore.ExploreRoute
+import com.example.android_highthon_10th.module.main.profile.ProfileRoute
+import com.example.android_highthon_10th.module.main.task.TaskRoute
 import com.example.android_highthon_10th.module.splash.SplashRoute
 
 object AppRoute {
@@ -22,11 +21,10 @@ object AppRoute {
     const val SPLASH = "splash"
     const val MAIN = "main"
 
-    const val MAIN_ITEM1 = "$MAIN/item1"
-    const val MAIN_ITEM2 = "$MAIN/item2"
-    const val MAIN_ITEM3 = "$MAIN/item3"
-    const val MAIN_ITEM4 = "$MAIN/item4"
-    const val MAIN_ITEM5 = "$MAIN/item5"
+    const val MAIN_EXPLORE = "$MAIN/explore"
+    const val MAIN_CHAT = "$MAIN/chat"
+    const val MAIN_TASK = "$MAIN/task"
+    const val MAIN_PROFILE = "$MAIN/profile"
 }
 
 
@@ -67,32 +65,27 @@ fun MainNavHost(
 
                 MainRoute(
                     bottomNavController = bottomNavController,
-                    startDestination = AppRoute.MAIN_ITEM1
+                    startDestination = AppRoute.MAIN_EXPLORE
                 ) {
                     composable(
-                        route = AppRoute.MAIN_ITEM1
+                        route = AppRoute.MAIN_EXPLORE
                     ) {
-                        Item1Route()
+                        ExploreRoute()
                     }
                     composable(
-                        route = AppRoute.MAIN_ITEM2
+                        route = AppRoute.MAIN_CHAT
                     ) {
-                        Item2Route()
+                        ChatRoute()
                     }
                     composable(
-                        route = AppRoute.MAIN_ITEM3
+                        route = AppRoute.MAIN_TASK
                     ) {
-                        Item3Route()
+                        TaskRoute()
                     }
                     composable(
-                        route = AppRoute.MAIN_ITEM4
+                        route = AppRoute.MAIN_PROFILE
                     ) {
-                        Item4Route()
-                    }
-                    composable(
-                        route = AppRoute.MAIN_ITEM5
-                    ) {
-                        Item5Route()
+                        ProfileRoute()
                     }
                 }
             }

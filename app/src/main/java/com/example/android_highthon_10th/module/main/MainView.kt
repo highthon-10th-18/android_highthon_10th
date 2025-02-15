@@ -1,4 +1,4 @@
-package com.example.android_highthon_10th.module
+package com.example.android_highthon_10th.module.main
 
 import android.annotation.SuppressLint
 import androidx.compose.animation.EnterTransition

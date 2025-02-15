@@ -28,31 +28,26 @@ enum class MainBottomRoute(
     val text: String,
     val icon: Int,
 ) {
-    Item1 (
-        route = AppRoute.MAIN_ITEM1,
-        text = "예시 문구",
-        icon = R.drawable.ic_default_size_icon,
+    Explore (
+        route = AppRoute.MAIN_EXPLORE,
+        text = "탐색",
+        icon = R.drawable.ic_explore,
     ),
-    Item2 (
-        route = AppRoute.MAIN_ITEM2,
-        text = "예시 문구",
-        icon = R.drawable.ic_default_size_icon,
+    Chat (
+        route = AppRoute.MAIN_CHAT,
+        text = "채팅",
+        icon = R.drawable.ic_chat,
     ),
     Item3 (
-        route = AppRoute.MAIN_ITEM3,
-        text = "예시 문구",
-        icon = R.drawable.ic_default_size_icon,
+        route = AppRoute.MAIN_TASK,
+        text = "작업",
+        icon = R.drawable.ic_task,
     ),
     Item4 (
-        route = AppRoute.MAIN_ITEM4,
-        text = "예시 문구",
-        icon = R.drawable.ic_default_size_icon,
+        route = AppRoute.MAIN_PROFILE,
+        text = "프로필",
+        icon = R.drawable.ic_profile,
     ),
-    Item5 (
-        route = AppRoute.MAIN_ITEM5,
-        text = "예시 문구",
-        icon = R.drawable.ic_default_size_icon,
-    )
 }
 
 @Composable

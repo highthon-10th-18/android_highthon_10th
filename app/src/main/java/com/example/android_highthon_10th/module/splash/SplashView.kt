@@ -13,11 +13,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.android_highthon_10th.R
-import com.example.android_highthon_10th.component.Icon
-import com.example.android_highthon_10th.component.IconSizeType
 import com.example.android_highthon_10th.style.AppTheme
-import com.example.android_highthon_10th.style.ColorChip
+import com.example.android_highthon_10th.style.ColorStyles
 import com.example.android_highthon_10th.util.findActivity
 import kotlinx.coroutines.delay
 
@@ -45,15 +42,11 @@ private fun SplashScreen() {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues)
-                .background(ColorChip.white),
+                .background(ColorStyles.BgBase.default),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Icon(
-                IconSizeType.Size64,
-                R.drawable.ic_default_size_icon,
-                ColorChip.black
-            )
+
         }
     }
 }
