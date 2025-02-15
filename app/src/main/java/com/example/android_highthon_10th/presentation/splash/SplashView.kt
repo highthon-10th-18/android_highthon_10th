@@ -9,10 +9,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.android_highthon_10th.style.AppTheme
 import com.example.android_highthon_10th.style.ColorStyles
 import com.example.android_highthon_10th.util.findActivity
@@ -20,17 +22,22 @@ import kotlinx.coroutines.delay
 
 @Composable
 fun SplashRoute(
+    viewModel: SplashViewModel = hiltViewModel(),
+    navigateOnboard: () -> Unit,
     navigateMain: () -> Unit
 ) {
     val context = LocalContext.current
     val activity = context.findActivity()
 
-    BackHandler { activity.finish() }
+    val state = viewModel.state.collectAsState()
 
-    LaunchedEffect(Unit) {
-        delay(500L)
+    if (state.value.nextPage == SplashViewModel.State.NextPage.Main) {
         navigateMain()
+    } else {
+        navigateOnboard()
     }
+
+    BackHandler { activity.finish() }
 
     SplashScreen()
 }

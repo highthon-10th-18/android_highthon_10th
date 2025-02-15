@@ -18,6 +18,7 @@ import com.example.android_highthon_10th.style.AppTheme
 
 @Composable
 fun IconButton(
+    modifier: Modifier = Modifier,
     buttonSize: Dp = 40.dp,
     iconSize: Dp = 24.dp,
     iconAlignment: Alignment = Alignment.Center,
@@ -25,7 +26,7 @@ fun IconButton(
     res: Int,
     onClick: () -> Unit
 ) {
-    val modifier = Modifier
+    modifier
         .size(buttonSize)
         .clickable { onClick() }
     Box(

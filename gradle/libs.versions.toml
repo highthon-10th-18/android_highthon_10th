@@ -13,6 +13,11 @@ composeBom = "2024.04.01"
 navigationCompose = "2.8.7"
 hiltNavigationCompose = "1.2.0"
 hilt = "2.52"
+datastorePreferences = "1.1.2"
+retrofit = "2.11.0"
+converterGson = "2.9.0"
+gson = "2.11.0"
+javaJwt = "4.4.0"
 
 [libraries]
 
@@ -39,6 +44,17 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+
+# storage
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }
+
+# network
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
+
+# utils
+java-jwt = { module = "com.auth0:java-jwt", version.ref = "javaJwt" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

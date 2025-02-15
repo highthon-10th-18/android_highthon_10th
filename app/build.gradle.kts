@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
@@ -10,6 +12,14 @@ android {
     namespace = "com.example.android_highthon_10th"
     compileSdk = 35
 
+    val localProperties = Properties()
+    val localPropertiesFile = rootProject.file("local.properties")
+    if (localPropertiesFile.exists()) {
+        localPropertiesFile.inputStream().use { localProperties.load(it) }
+    }
+
+    val baseUrl = localProperties.getProperty("baseUrl") ?: ""
+
     defaultConfig {
         applicationId = "com.example.android_highthon_10th"
         minSdk = 29
@@ -18,6 +28,8 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "baseUrl", baseUrl)
     }
 
     buildTypes {
@@ -38,6 +50,9 @@ android {
     }
     buildFeatures {
         compose = true
+    }
+    buildFeatures {
+        buildConfig = true
     }
 }
 
@@ -68,4 +83,14 @@ dependencies {
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
 
+    // storage
+    implementation(libs.androidx.datastore.preferences)
+
+    // network
+    implementation(libs.retrofit)
+    implementation (libs.gson)
+    implementation(libs.converter.gson)
+
+    // utils
+    implementation(libs.java.jwt)
 }

@@ -13,10 +13,14 @@ import com.example.android_highthon_10th.presentation.main.chat.ChatRoute
 import com.example.android_highthon_10th.presentation.main.explore.ExploreRoute
 import com.example.android_highthon_10th.presentation.main.profile.ProfileRoute
 import com.example.android_highthon_10th.presentation.main.task.TaskRoute
+import com.example.android_highthon_10th.presentation.onboard.LoginRoute
+import com.example.android_highthon_10th.presentation.onboard.OnboardRoute
+import com.example.android_highthon_10th.presentation.onboard.SignUpRoute
 import com.example.android_highthon_10th.presentation.splash.SplashRoute
 
 object AppRoute {
     const val MAIN_ROUTE = "main-route"
+    const val ONBOARD_ROUTE = "onboard-route"
 
     const val SPLASH = "splash"
     const val MAIN = "main"
@@ -25,6 +29,10 @@ object AppRoute {
     const val MAIN_CHAT = "$MAIN/chat"
     const val MAIN_TASK = "$MAIN/task"
     const val MAIN_PROFILE = "$MAIN/profile"
+
+    const val ONBOARD = "onboard"
+    const val ONBOARD_LOGIN = "$ONBOARD/login"
+    const val ONBOARD_SIGNUP = "$ONBOARD/signup"
 }
 
 
@@ -44,6 +52,13 @@ fun MainNavHost(
             route = AppRoute.SPLASH
         ) {
             SplashRoute(
+                navigateOnboard = {
+                    navController.navigate(AppRoute.ONBOARD_ROUTE) {
+                        popUpTo(AppRoute.SPLASH) {
+                            inclusive = true
+                        }
+                    }
+                },
                 navigateMain = {
                     navController.navigate(AppRoute.MAIN_ROUTE) {
                         popUpTo(AppRoute.SPLASH) {
@@ -52,6 +67,52 @@ fun MainNavHost(
                     }
                 }
             )
+        }
+
+        navigation(
+            route = AppRoute.ONBOARD_ROUTE,
+            startDestination = AppRoute.ONBOARD
+        ) {
+            composable(
+                route = AppRoute.ONBOARD
+            ) {
+                OnboardRoute(
+                    navigateLogin = {
+                        navController.navigate(AppRoute.ONBOARD_LOGIN)
+                    },
+                    navigateSignUp = {
+                        navController.navigate(AppRoute.ONBOARD_SIGNUP)
+                    }
+                )
+            }
+            composable(
+                route = AppRoute.ONBOARD_LOGIN
+            ) {
+                LoginRoute(
+                    navigateMain = {
+                        navController.navigate(AppRoute.MAIN_ROUTE) {
+                            popUpTo(AppRoute.ONBOARD_ROUTE) {
+                                inclusive = true
+                            }
+                        }
+                    },
+                    popBackStack = navController::popBackStack
+                )
+            }
+            composable(
+                route = AppRoute.ONBOARD_SIGNUP
+            ) {
+                SignUpRoute(
+                    navigateMain = {
+                        navController.navigate(AppRoute.MAIN_ROUTE) {
+                            popUpTo(AppRoute.ONBOARD_ROUTE) {
+                                inclusive = true
+                            }
+                        }
+                    },
+                    popBackStack = navController::popBackStack
+                )
+            }
         }
 
         navigation(
