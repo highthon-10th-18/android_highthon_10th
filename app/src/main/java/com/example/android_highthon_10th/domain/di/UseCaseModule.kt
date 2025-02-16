@@ -1,10 +1,14 @@
 package com.example.android_highthon_10th.domain.di
 
+import com.example.android_highthon_10th.domain.repository.AlarmRepository
 import com.example.android_highthon_10th.domain.repository.LoginRepository
 import com.example.android_highthon_10th.domain.repository.SessionRepository
 import com.example.android_highthon_10th.domain.repository.SignUpRepository
+import com.example.android_highthon_10th.domain.repository.TodoRepository
+import com.example.android_highthon_10th.domain.usecase.AlarmUseCase
 import com.example.android_highthon_10th.domain.usecase.LoginUseCase
 import com.example.android_highthon_10th.domain.usecase.SignUpUseCase
+import com.example.android_highthon_10th.domain.usecase.TodoUseCase
 import com.example.android_highthon_10th.domain.usecase.ValidateEmailUseCase
 import com.example.android_highthon_10th.domain.usecase.ValidateNameUseCase
 import com.example.android_highthon_10th.domain.usecase.ValidatePasswordUseCase
@@ -52,5 +56,18 @@ object UseCaseModule {
         session: SessionRepository
     ): LoginUseCase {
         return LoginUseCase(repository, session)
+    }
+
+    @Provides
+    @Singleton
+    fun provideTodoUseCase(repository: TodoRepository): TodoUseCase {
+        return TodoUseCase(repository)
+    }
+
+
+    @Provides
+    @Singleton
+    fun provideAlarmUseCase(repository: AlarmRepository): AlarmUseCase {
+        return AlarmUseCase(repository)
     }
 }

@@ -16,8 +16,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.android_highthon_10th.R
 import com.example.android_highthon_10th.style.AppTheme
 import com.example.android_highthon_10th.style.ColorChip
 import com.example.android_highthon_10th.style.ColorStyles
@@ -50,7 +52,10 @@ private fun OnboardScreen(
                 modifier = Modifier.fillMaxWidth().weight(1f),
                 contentAlignment = Alignment.Center
             ) {
-
+                androidx.compose.material3.Icon(
+                    painter = painterResource(R.drawable.ic_buddyz),
+                    contentDescription = null
+                )
             }
             Column(
                 modifier = Modifier.fillMaxWidth().padding(16.dp),

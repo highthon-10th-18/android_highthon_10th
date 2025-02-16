@@ -3,6 +3,7 @@ import java.util.Properties
 plugins {
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
+    alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
@@ -67,6 +68,10 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -93,4 +98,8 @@ dependencies {
 
     // utils
     implementation(libs.java.jwt)
+
+
+    // Model
+    implementation(libs.kotlinx.serialization.json)
 }

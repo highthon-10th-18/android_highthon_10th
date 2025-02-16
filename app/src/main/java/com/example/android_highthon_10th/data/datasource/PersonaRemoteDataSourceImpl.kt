@@ -1,5 +1,6 @@
 package com.example.android_highthon_10th.data.datasource
 
+import android.util.Log
 import com.example.android_highthon_10th.data.api.PersonaApi
 import com.example.android_highthon_10th.data.datasource.source.PersonaRemoteDataSource
 import com.example.android_highthon_10th.data.model.response.PersonasDetailResponse
@@ -11,6 +12,7 @@ class PersonaRemoteDataSourceImpl @Inject constructor(
     private val api: PersonaApi
 ): PersonaRemoteDataSource {
     override suspend fun getPersonas(): List<PersonasResponse> {
+        Log.d("확인1", "!!!@#2131243143123123123132123123 = ${api.getPersonas()}")
         return api.getPersonas()
     }
 

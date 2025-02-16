@@ -12,7 +12,7 @@ import retrofit2.http.Path
 interface PersonaApi {
 
     @GET("personas")
-    fun getPersonas(): List<PersonasResponse>
+    suspend fun getPersonas(): List<PersonasResponse>
 
     @Multipart
     @POST("personas")
@@ -23,6 +23,6 @@ interface PersonaApi {
     ): PersonasDetailResponse
 
     @GET("personas/{uuid}")
-    fun getPersonaDetail(@Path(value = "uuid") uuid : Int): PersonasDetailResponse
+    suspend fun getPersonaDetail(@Path(value = "uuid") uuid : Int): PersonasDetailResponse
 
 }

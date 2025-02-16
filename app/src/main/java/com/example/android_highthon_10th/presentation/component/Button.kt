@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.example.android_highthon_10th.R
 import com.example.android_highthon_10th.style.AppTheme
+import com.example.android_highthon_10th.util.noRippleClickable
 
 @Composable
 fun IconButton(
@@ -26,11 +27,11 @@ fun IconButton(
     res: Int,
     onClick: () -> Unit
 ) {
-    modifier
+    val newModifier = modifier
         .size(buttonSize)
-        .clickable { onClick() }
+        .noRippleClickable { onClick() }
     Box(
-        modifier = modifier,
+        modifier = newModifier,
         contentAlignment = iconAlignment
     ) {
         if (tint != null) {

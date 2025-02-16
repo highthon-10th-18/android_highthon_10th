@@ -1,6 +1,7 @@
 package com.example.android_highthon_10th.presentation.onboard
 
 import android.os.Parcelable
+import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import com.example.android_highthon_10th.base.BaseViewModel
 import com.example.android_highthon_10th.data.model.request.LoginBody
@@ -8,6 +9,7 @@ import com.example.android_highthon_10th.data.model.request.SignUpBody
 import com.example.android_highthon_10th.domain.usecase.LoginUseCase
 import com.example.android_highthon_10th.domain.usecase.ValidateEmailUseCase
 import com.example.android_highthon_10th.domain.usecase.ValidatePasswordUseCase
+import com.example.android_highthon_10th.util.CommonException
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -26,27 +28,30 @@ class LoginViewModel @Inject constructor(
     val successLogin: SharedFlow<Unit> = _successLogin.asSharedFlow()
 
     fun onEmailChanged(value: String) {
-        val isValidated = validateEmailUseCase(value)
-
         updateState {
-            copy(email = if (isValidated) value else email)
+            copy(email = value)
         }
     }
 
     fun onPasswordChanged(value: String) {
-        val isValidated = validatePasswordUseCase(value)
 
         updateState {
-            copy(password = if (isValidated) value else password)
+            copy(password = value)
         }
     }
 
     fun login() = launchWithLoading {
+//        val emailValidateCheck = validateEmailUseCase(state.value.email)
+//        val passwordValidateCheck = validatePasswordUseCase(state.value.password)
+
+//        if (!emailValidateCheck || !passwordValidateCheck) throw CommonException.UnknownError()
+
         val body = LoginBody(
             email = state.value.email,
             password = state.value.password
         )
         loginUseCase(body)
+        _successLogin.emit(Unit)
     }
 
     data class State(

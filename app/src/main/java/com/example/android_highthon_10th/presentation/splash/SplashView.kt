@@ -13,8 +13,10 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.android_highthon_10th.R
 import com.example.android_highthon_10th.style.AppTheme
 import com.example.android_highthon_10th.style.ColorStyles
 import com.example.android_highthon_10th.util.findActivity
@@ -31,11 +33,14 @@ fun SplashRoute(
 
     val state = viewModel.state.collectAsState()
 
-    if (state.value.nextPage == SplashViewModel.State.NextPage.Main) {
-        navigateMain()
-    } else {
-        navigateOnboard()
+    state.value.nextPage?.let {
+        if (it == SplashViewModel.State.NextPage.Main) {
+            navigateMain()
+        } else {
+            navigateOnboard()
+        }
     }
+
 
     BackHandler { activity.finish() }
 
@@ -53,7 +58,10 @@ private fun SplashScreen() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-
+            androidx.compose.material3.Icon(
+                painter = painterResource(R.drawable.ic_buddyz),
+                contentDescription = null
+            )
         }
     }
 }

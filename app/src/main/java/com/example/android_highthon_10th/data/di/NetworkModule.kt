@@ -1,8 +1,10 @@
 package com.example.android_highthon_10th.data.di
 
 import com.example.android_highthon_10th.BuildConfig
+import com.example.android_highthon_10th.data.api.AlarmApi
 import com.example.android_highthon_10th.data.api.AuthApi
 import com.example.android_highthon_10th.data.api.PersonaApi
+import com.example.android_highthon_10th.data.api.TodoApi
 import com.example.android_highthon_10th.data.api.UserApi
 import com.example.android_highthon_10th.data.interceptor.AppInterceptor
 import com.example.android_highthon_10th.data.interceptor.DefaultInterceptor
@@ -87,6 +89,16 @@ object NetworkModule {
     @Provides
     fun providePersonaApi(@AppRetrofit retrofit: Retrofit): PersonaApi {
         return retrofit.create(PersonaApi::class.java)
+    }
+
+    @Provides
+    fun provideAlarmApi(@AppRetrofit retrofit: Retrofit): AlarmApi {
+        return retrofit.create(AlarmApi::class.java)
+    }
+
+    @Provides
+    fun provideTodoApi(@AppRetrofit retrofit: Retrofit): TodoApi {
+        return retrofit.create(TodoApi::class.java)
     }
 
 }

@@ -1,6 +1,7 @@
 package com.example.android_highthon_10th.presentation.onboard
 
 import android.os.Parcelable
+import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import com.example.android_highthon_10th.base.BaseViewModel
 import com.example.android_highthon_10th.data.model.request.SignUpBody
@@ -8,6 +9,7 @@ import com.example.android_highthon_10th.domain.usecase.SignUpUseCase
 import com.example.android_highthon_10th.domain.usecase.ValidateEmailUseCase
 import com.example.android_highthon_10th.domain.usecase.ValidateNameUseCase
 import com.example.android_highthon_10th.domain.usecase.ValidatePasswordUseCase
+import com.example.android_highthon_10th.util.CommonException
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -27,36 +29,37 @@ class SignUpViewModel @Inject constructor(
     val successSignUp: SharedFlow<Unit> = _successSignUp.asSharedFlow()
 
     fun onEmailChanged(value: String) {
-        val isValidated = validateEmailUseCase(value)
-
         updateState {
-            copy(email = if (isValidated) value else email)
+            copy(email = value)
         }
     }
 
     fun onPasswordChanged(value: String) {
-        val isValidated = validatePasswordUseCase(value)
-
         updateState {
-            copy(password = if (isValidated) value else password)
+            copy(password = value)
         }
     }
 
     fun onNameChanged(value: String) {
-        val isValidated = validateNameUseCase(value)
-
         updateState {
-            copy(name = if (isValidated) value else name)
+            copy(name = value)
         }
     }
 
     fun signUp() = launchWithLoading {
+        val emailValidateCheck = validateEmailUseCase(state.value.email)
+        val passwordValidateCheck = validatePasswordUseCase(state.value.password)
+        val nameValidateCheck = validateNameUseCase(state.value.name)
+
+        if (!emailValidateCheck || !passwordValidateCheck || !nameValidateCheck) throw CommonException.UnknownError()
+
         val body = SignUpBody(
             email = state.value.email,
             name = state.value.name,
             password = state.value.password
         )
         signUpUseCase(body)
+        _successSignUp.emit(Unit)
     }
 
 

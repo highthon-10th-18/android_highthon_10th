@@ -40,6 +40,7 @@ import com.example.android_highthon_10th.style.AppTheme
 import com.example.android_highthon_10th.style.ColorChip
 import com.example.android_highthon_10th.style.ColorStyles
 import com.example.android_highthon_10th.style.TextStyles
+import com.example.android_highthon_10th.util.noRippleClickable
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -156,7 +157,7 @@ fun TextField(
                 if (isPassword) {
                     IconButton(
                         iconAlignment = Alignment.BottomEnd,
-                        modifier = Modifier.align(Alignment.BottomEnd).padding(12.dp),
+                        modifier = Modifier.align(Alignment.BottomEnd).padding(12.dp).noRippleClickable { showText = !showText },
                         tint = ColorStyles.CntDefault.quaternary,
                         res = if (showText) R.drawable.ic_password_on else R.drawable.ic_password_off,
                         onClick = { showText = !showText }

@@ -5,5 +5,5 @@ import retrofit2.http.GET
 
 interface UserApi {
     @GET("auth/me")
-    fun getUser(): UserResponse
+    suspend fun getUser(): UserResponse
 }
